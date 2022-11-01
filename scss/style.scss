@@ -1,0 +1,262 @@
+@use '_colors' as colors;
+
+@mixin flexbox($display, $alignItems, $justifyContent, $direction) {
+	display: $display;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+	flex-direction: $direction;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	color: colors.$dark-gray;
+	font-size: 1.5rem;
+	font-family: 'League Spartan', sans-serif;
+	line-height: 1.5;
+}
+
+.attribution {
+	padding: 2em 0;
+	font-size: 1.4rem;
+	text-align: center;
+}
+.attribution a {
+	color: colors.$very-dark-gray;
+	transition: color 0.3s;
+
+	&:hover {
+		color: colors.$black;
+	}
+}
+
+@media (min-width: 1440px) {
+	.header {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		z-index: 1;
+
+		&--desktop {
+			display: flex;
+			align-items: flex-end;
+			padding: 3em 4em;
+
+			.nav {
+				margin-left: 3em;
+
+				&__link {
+					position: relative;
+					padding-bottom: 0.3em;
+					margin: 0 1em;
+					color: colors.$white;
+					font-size: 1.6rem;
+					text-decoration: none;
+
+					&::before {
+						position: absolute;
+						bottom: 0;
+						right: 0;
+						transform: scaleX(0);
+						transform-origin: right;
+						height: 2px;
+						width: 50%;
+						background-color: colors.$white;
+						content: '';
+						transition: transform 0.3s;
+					}
+
+					&:hover::before {
+						transform: scaleX(1);
+					}
+				}
+			}
+		}
+	}
+
+	.main,
+	.main-top,
+	.main-bottom {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	.main {
+		position: relative;
+		grid-template-rows: 65vh 35vh;
+		height: 100vh;
+
+		&-top {
+			grid-template-rows: 65vh;
+			grid-column: 1/13;
+			grid-row: 1/2;
+
+			&__img {
+				grid-column: 1/8;
+				grid-template-rows: 1/2;
+
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+
+			&__text {
+				position: relative;
+				@include flexbox(flex, flex-start, flex-start, column);
+				grid-column: 8/13;
+				grid-row: 1/2;
+				padding: 6em;
+
+				&--one,
+				&--three {
+					display: none;
+				}
+
+				&-title {
+					margin-bottom: 0.5em;
+					color: colors.$black;
+					font-size: 5rem;
+					line-height: 1;
+				}
+
+				&-info {
+					margin-bottom: 1.5em;
+				}
+
+				&-btn {
+					color: colors.$black;
+					text-decoration: none;
+					text-transform: uppercase;
+					letter-spacing: 10px;
+					transition: color 0.3s;
+
+					path {
+						transition: fill 0.3s;
+					}
+
+					&:hover {
+						color: colors.$dark-gray;
+
+						path {
+							fill: colors.$dark-gray;
+						}
+					}
+				}
+
+				.carousel-btns {
+					position: absolute;
+					display: flex;
+					bottom: 0;
+					left: 0;
+					width: 20%;
+					height: 13%;
+
+					&__btn {
+						width: 50%;
+						height: 100%;
+						background-color: colors.$black;
+						border: none;
+						outline: none;
+						cursor: pointer;
+						transition: background-color 0.3s;
+
+						&:hover {
+							background-color: colors.$dark-gray;
+						}
+					}
+				}
+			}
+		}
+
+		&-bottom {
+			grid-template-rows: 35vh;
+			grid-column: 1/13;
+			grid-row: 2/3;
+
+			&__img {
+				&--one {
+					grid-column: 1/4;
+					grid-row: 1/2;
+				}
+				&--two {
+					grid-column: 9/13;
+					grid-row: 1/2;
+				}
+
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+
+			&__text {
+				@include flexbox(flex, flex-start, center, column);
+				grid-column: 4/9;
+				grid-row: 1/2;
+				padding: 4em;
+
+				&-title {
+					margin-bottom: 0.5em;
+					color: colors.$black;
+					font-size: 2rem;
+					text-transform: uppercase;
+					letter-spacing: 5px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1600px) {
+	.main,
+	.header {
+		max-width: 2200px;
+		margin: 0 auto;
+	}
+
+	.main {
+		&-top {
+			&__text {
+				&-title {
+					margin-bottom: 1em;
+				}
+				&-info {
+					font-size: 1.8rem;
+					margin-bottom: 5rem;
+				}
+
+				&-btn {
+					font-size: 2rem;
+				}
+			}
+		}
+
+		&-bottom {
+			&__text {
+				&-title {
+					font-size: 2.5rem;
+				}
+
+				&-info {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}

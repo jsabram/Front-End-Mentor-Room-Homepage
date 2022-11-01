@@ -1,0 +1,217 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #a1a1a1;
+  font-size: 1.5rem;
+  font-family: "League Spartan", sans-serif;
+  line-height: 1.5;
+}
+
+.attribution {
+  padding: 2em 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: #454545;
+  transition: color 0.3s;
+}
+.attribution a:hover {
+  color: #000;
+}
+
+@media (min-width: 1440px) {
+  .header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+  }
+  .header--desktop {
+    display: flex;
+    align-items: flex-end;
+    padding: 3em 4em;
+  }
+  .header--desktop .nav {
+    margin-left: 3em;
+  }
+  .header--desktop .nav__link {
+    position: relative;
+    padding-bottom: 0.3em;
+    margin: 0 1em;
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+  .header--desktop .nav__link::before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    height: 2px;
+    width: 50%;
+    background-color: #fff;
+    content: "";
+    transition: transform 0.3s;
+  }
+  .header--desktop .nav__link:hover::before {
+    transform: scaleX(1);
+  }
+  .main,
+.main-top,
+.main-bottom {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .main {
+    position: relative;
+    grid-template-rows: 65vh 35vh;
+    height: 100vh;
+  }
+  .main-top {
+    grid-template-rows: 65vh;
+    grid-column: 1/13;
+    grid-row: 1/2;
+  }
+  .main-top__img {
+    grid-column: 1/8;
+    grid-template-rows: 1/2;
+  }
+  .main-top__img img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .main-top__text {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    grid-column: 8/13;
+    grid-row: 1/2;
+    padding: 6em;
+  }
+  .main-top__text--one, .main-top__text--three {
+    display: none;
+  }
+  .main-top__text-title {
+    margin-bottom: 0.5em;
+    color: #000;
+    font-size: 5rem;
+    line-height: 1;
+  }
+  .main-top__text-info {
+    margin-bottom: 1.5em;
+  }
+  .main-top__text-btn {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    transition: color 0.3s;
+  }
+  .main-top__text-btn path {
+    transition: fill 0.3s;
+  }
+  .main-top__text-btn:hover {
+    color: #a1a1a1;
+  }
+  .main-top__text-btn:hover path {
+    fill: #a1a1a1;
+  }
+  .main-top__text .carousel-btns {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    height: 13%;
+  }
+  .main-top__text .carousel-btns__btn {
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .main-top__text .carousel-btns__btn:hover {
+    background-color: #a1a1a1;
+  }
+  .main-bottom {
+    grid-template-rows: 35vh;
+    grid-column: 1/13;
+    grid-row: 2/3;
+  }
+  .main-bottom__img--one {
+    grid-column: 1/4;
+    grid-row: 1/2;
+  }
+  .main-bottom__img--two {
+    grid-column: 9/13;
+    grid-row: 1/2;
+  }
+  .main-bottom__img img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .main-bottom__text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    grid-column: 4/9;
+    grid-row: 1/2;
+    padding: 4em;
+  }
+  .main-bottom__text-title {
+    margin-bottom: 0.5em;
+    color: #000;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+}
+@media (min-width: 1600px) {
+  .main,
+.header {
+    max-width: 2200px;
+    margin: 0 auto;
+  }
+  .main-top__text-title {
+    margin-bottom: 1em;
+  }
+  .main-top__text-info {
+    font-size: 1.8rem;
+    margin-bottom: 5rem;
+  }
+  .main-top__text-btn {
+    font-size: 2rem;
+  }
+  .main-bottom__text-title {
+    font-size: 2.5rem;
+  }
+  .main-bottom__text-info {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=style.css.map */
