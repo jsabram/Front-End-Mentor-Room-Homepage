@@ -91,12 +91,26 @@ body {
   .main-top__img {
     grid-column: 1/8;
     grid-template-rows: 1/2;
+    overflow: hidden;
   }
-  .main-top__img img {
+  .main-top__img .carousel {
+    display: flex;
     height: 100%;
     width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .main-top__img-box {
+    background-image: url("../images/desktop-image-hero-1.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .main-top__img-box--two {
+    background-image: url("../images/desktop-image-hero-2.jpg");
+  }
+  .main-top__img-box--three {
+    background-image: url("../images/desktop-image-hero-3.jpg");
   }
   .main-top__text {
     position: relative;
@@ -106,19 +120,6 @@ body {
     flex-direction: column;
     grid-column: 8/13;
     grid-row: 1/2;
-    padding: 6em;
-  }
-  .main-top__text--one, .main-top__text--three {
-    display: none;
-  }
-  .main-top__text-title {
-    margin-bottom: 0.5em;
-    color: #000;
-    font-size: 5rem;
-    line-height: 1;
-  }
-  .main-top__text-info {
-    margin-bottom: 1.5em;
   }
   .main-top__text-btn {
     color: #000;
@@ -155,6 +156,22 @@ body {
   }
   .main-top__text .carousel-btns__btn:hover {
     background-color: #a1a1a1;
+  }
+  .main-top__description {
+    display: block;
+    padding: 6em;
+  }
+  .main-top__description--two, .main-top__description--three {
+    display: none;
+  }
+  .main-top__description-title {
+    margin-bottom: 0.5em;
+    color: #000;
+    font-size: 5rem;
+    line-height: 1;
+  }
+  .main-top__description-info {
+    margin-bottom: 1.5em;
   }
   .main-bottom {
     grid-template-rows: 35vh;
